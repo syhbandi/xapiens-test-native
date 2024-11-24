@@ -46,14 +46,13 @@ export default function AuthProvider(props: PropsWithChildren) {
 
   const signIn = useCallback(async (email: string, password: string) => {
     const { data } = await api.post("/login", { email, password });
-    console.log(data);
     await SecureStore.setItemAsync("session", JSON.stringify(data));
     setUser(data);
   }, []);
 
   const signOut = useCallback(async () => {
     console.log(user?.token);
-    await api.post("logout");
+    await api.post("/logout");
     await SecureStore.deleteItemAsync("session");
     setUser(null);
   }, [user]);

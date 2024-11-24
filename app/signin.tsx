@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
-import { router, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { useAuth } from "@/context/authContext";
 
 const signin = () => {
@@ -41,11 +41,6 @@ const signin = () => {
 
   return (
     <SafeAreaView className="flex-1">
-      <View className="p-5 flex-row justify-between">
-        <TouchableOpacity onPress={() => router.back()}>
-          <Feather name="arrow-left" size={24} />
-        </TouchableOpacity>
-      </View>
       <View className="px-6 flex-1">
         <Text className="text-3xl font-PoppinsSemiBold text-center mt-20">
           Login
